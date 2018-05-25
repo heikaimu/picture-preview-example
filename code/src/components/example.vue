@@ -47,6 +47,12 @@
               <el-form-item label="鼠标缩放">
                 <el-switch v-model="form.isMousewheelScale"></el-switch>
               </el-form-item>
+              <el-form-item label="大图类型">
+                <el-radio-group v-model="defaultProps.originalKey">
+                  <el-radio label="original">原图</el-radio>
+                  <el-radio label="waterMark">水印图</el-radio>
+                </el-radio-group>
+              </el-form-item>
               <el-form-item label="尺寸">
                 <el-slider
                   v-model="form.width"
@@ -83,51 +89,23 @@
         pictureList: [
           {
             thumbnail: '/20180525091245.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091245.jpg'
+            original: '/20180525091245.jpg',
+            waterMark: '/20180525091245.jpg?imageView2/0/q/75|watermark/2/text/aGVpa2FpbXUgTW9uc3RlciBIdW50ZXIgV29ybGQ=/font/6buR5L2T/fontsize/480/fill/I0ZGRkZGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim'
           },
           {
             thumbnail: '/20180525091249.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091249.jpg'
+            original: '/20180525091249.jpg',
+            waterMark: '/20180525091249.jpg?imageView2/0/q/75|watermark/2/text/aGVpa2FpbXUgTW9uc3RlciBIdW50ZXIgV29ybGQ=/font/6buR5L2T/fontsize/480/fill/I0ZGRkZGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim'
           },
           {
             thumbnail: '/20180525091252.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091252.jpg'
+            original: '/20180525091252.jpg',
+            waterMark: '/20180525091252.jpg?imageView2/0/q/75|watermark/2/text/aGVpa2FpbXUgTW9uc3RlciBIdW50ZXIgV29ybGQ=/font/6buR5L2T/fontsize/480/fill/I0ZGRkZGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim'
           },
           {
             thumbnail: '/20180525091253.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091253.jpg'
-          },
-          {
-            thumbnail: '/20180525091245.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091245.jpg'
-          },
-          {
-            thumbnail: '/20180525091249.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091249.jpg'
-          },
-          {
-            thumbnail: '/20180525091252.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091252.jpg'
-          },
-          {
-            thumbnail: '/20180525091253.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091253.jpg'
-          },
-          {
-            thumbnail: '/20180525091245.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091245.jpg'
-          },
-          {
-            thumbnail: '/20180525091249.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091249.jpg'
-          },
-          {
-            thumbnail: '/20180525091252.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091252.jpg'
-          },
-          {
-            thumbnail: '/20180525091253.jpg?imageView2/5/w/200/h/200/q/75|imageslim',
-            original: '/20180525091253.jpg'
+            original: '/20180525091253.jpg',
+            waterMark: '/20180525091253.jpg?imageView2/0/q/75|watermark/2/text/aGVpa2FpbXUgTW9uc3RlciBIdW50ZXIgV29ybGQ=/font/6buR5L2T/fontsize/480/fill/I0ZGRkZGRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim'
           }
         ],
         defaultProps: {
@@ -185,7 +163,7 @@
     padding: 20px;
   }
   .link{
-    padding-top: 100px;
+    padding-top: 30px;
     text-align: center;
     a{
       color: #333;

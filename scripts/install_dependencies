@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /opt
+rm -rf heyrent_admin/*
+mv /home/centos/vueadmin/* heyrent_admin/

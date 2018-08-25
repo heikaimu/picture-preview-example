@@ -6,6 +6,7 @@
         <router-link to="/index/params">参数</router-link>
         <router-link to="/index/methods">方法</router-link>
         <router-link to="/index/upload">带上传</router-link>
+        <router-link to="/index/other">其他</router-link>
       </div>
       <div class="content-wrapper">
         <router-view></router-view>
@@ -27,7 +28,7 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
-    background: #666;
+    background: #f7f8fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,6 +37,7 @@ export default {
       height: 100%;
       background: #fff;
       position: relative;
+      box-shadow: 0 0 3px #e7e7e7;
       .tab-wrapper{
         width: 100%;
         height: 60px;
@@ -70,6 +72,7 @@ export default {
         right: 0;
         top: 60px;
         bottom: 0;
+        overflow-y: auto;
       }
     }
   }

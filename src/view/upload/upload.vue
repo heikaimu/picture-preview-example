@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      tokenUrl: 'http://heikaimu.top:4000/qiniu/token?bucket=test',
+      tokenUrl: 'http://47.104.203.213:4000/qiniu/token?bucket=test',
       uploadUrl: 'http://upload.qiniu.com/'
     }
   },

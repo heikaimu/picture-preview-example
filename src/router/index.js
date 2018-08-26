@@ -21,6 +21,10 @@ export default new Router({
       component: Index,
       children: [
         {
+          path: '/',
+          redirect: 'example'
+        },
+        {
           path: 'example',
           component: Example
         },

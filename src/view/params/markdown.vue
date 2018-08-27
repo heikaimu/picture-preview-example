@@ -11,24 +11,25 @@ template
 
 <script>
 export default {
-	props: {
-		form: {
-			default() {
-				return {}
-			}
-		}
-	},
+  props: {
+    form: {
+      default() {
+        return {};
+      }
+    }
+  },
   data() {
-		return {
-			code: '',
-			isRefress: true
-		};
-	},
-	created() {
-this.code = `<PPreview 
+    return {
+      code: "",
+      isRefress: true
+    };
+  },
+  created() {
+    this.code = `<PPreview 
   :width="${this.form.width}"
   :height="${this.form.height}"
   :borderRadius="${this.form.borderRadius}"
+  :spaceBetween="${this.form.spaceBetween}"
   :isMenu="${this.form.isMenu}"
   :isRotate="${this.form.isRotate}"
   :isMove="${this.form.isMove}"
@@ -36,17 +37,20 @@ this.code = `<PPreview
   :isSingleClickToClose="${this.form.isSingleClickToClose}"
   :doubleRestore="${this.form.doubleRestore}"
   :isMousewheelScale="${this.form.isMousewheelScale}"
+  :mousewheelScaleSpeed="${this.form.mousewheelScaleSpeed}"
   :isEdit="${this.form.isEdit}"
-></PPreview>`
-	},
-	watch: {
-		form: {
-			handler(newName, oldName) {
-				this.isRefress = false;
-this.code = `<PPreview 
+  :keyboardControl="${this.form.keyboardControl}"
+></PPreview>`;
+  },
+  watch: {
+    form: {
+      handler(newName, oldName) {
+        this.isRefress = false;
+        this.code = `<PPreview 
   :width="${this.form.width}"
   :height="${this.form.height}"
   :borderRadius="${this.form.borderRadius}"
+  :spaceBetween="${this.form.spaceBetween}"
   :isMenu="${this.form.isMenu}"
   :isRotate="${this.form.isRotate}"
   :isMove="${this.form.isMove}"
@@ -54,15 +58,17 @@ this.code = `<PPreview
   :isSingleClickToClose="${this.form.isSingleClickToClose}"
   :doubleRestore="${this.form.doubleRestore}"
   :isMousewheelScale="${this.form.isMousewheelScale}"
+  :mousewheelScaleSpeed="${this.form.mousewheelScaleSpeed}"
   :isEdit="${this.form.isEdit}"
-></PPreview>`
-				setTimeout(() => {
-				this.isRefress = true;
-				}, 500)
-			},
-			deep: true
-		}
-	}
+  :keyboardControl="${this.form.keyboardControl}"
+></PPreview>`;
+        setTimeout(() => {
+          this.isRefress = true;
+        }, 500);
+      },
+      deep: true
+    }
+  }
 };
 </script>
 

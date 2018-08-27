@@ -8,6 +8,7 @@
           :width="form.width"
           :height="form.height"
           :borderRadius="form.borderRadius"
+          :spaceBetween="form.spaceBetween"
           :isMenu="form.isMenu"
           :isRotate="form.isRotate"
           :isMove="form.isMove"
@@ -15,7 +16,9 @@
           :isSingleClickToClose="form.isSingleClickToClose"
           :doubleRestore="form.doubleRestore"
           :isMousewheelScale="form.isMousewheelScale"
+          :mousewheelScaleSpeed="form.mousewheelScaleSpeed"
           :isEdit="form.isEdit"
+          :keyboardControl="form.keyboardControl"
         ></PPreview>
         </div>
         <div class="work-station">
@@ -32,6 +35,12 @@
                 </mu-form-item>
                 <mu-form-item prop="borderRadius" label="borderRadius">
                   <mu-slider v-model="form.borderRadius" :max="100"></mu-slider>
+                </mu-form-item>
+                <mu-form-item prop="spaceBetween" label="spaceBetween">
+                  <mu-slider v-model="form.spaceBetween" :max="100"></mu-slider>
+                </mu-form-item>
+                <mu-form-item prop="mousewheelScaleSpeed" label="mousewheelScaleSpeed">
+                  <mu-slider v-model="form.mousewheelScaleSpeed" :max="1"></mu-slider>
                 </mu-form-item>
                 <mu-row style="margin-bottom: 20px;">
                     <mu-col span="4">
@@ -61,6 +70,9 @@
                     </mu-col>
                     <mu-col span="4">
                       <mu-switch v-model="form.isEdit" label="isEdit"></mu-switch>
+                    </mu-col>
+                    <mu-col span="4">
+                      <mu-switch v-model="form.keyboardControl" label="keyboardControl"></mu-switch>
                     </mu-col>
                   </mu-row>
               </mu-form>
@@ -120,7 +132,10 @@ export default {
         isSingleClickToClose: true,
         doubleRestore: true,
         isMousewheelScale: true,
-        isEdit: false
+        isEdit: false,
+        keyboardControl: true,
+        mousewheelScaleSpeed: 0.06,
+        spaceBetween: 5
       },
       columns: [
           { title: '方法名称', name: 'name' },
@@ -146,6 +161,12 @@ export default {
           desc: '圆角',
           type: 'number',
           default: 10
+        },
+        {
+          name: 'spaceBetween',
+          desc: '间距',
+          type: 'number',
+          default: 5
         },
         {
           name: 'isMenu',
@@ -190,10 +211,22 @@ export default {
           default: 'true'
         },
         {
+          name: 'mousewheelScaleSpeed',
+          desc: '鼠标缩放速度',
+          type: 'Number',
+          default: '0.06'
+        },
+        {
           name: 'isEdit',
           desc: '是否开启编辑模式',
           type: 'Boolean',
           default: 'false'
+        },
+        {
+          name: 'keyboardControl',
+          desc: '键盘控制（关闭，左右切换大图）。ESC为关闭。AD，← →均可左右切换',
+          type: 'Boolean',
+          default: 'true'
         }
       ]
     };

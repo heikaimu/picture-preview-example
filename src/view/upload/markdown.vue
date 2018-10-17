@@ -124,7 +124,6 @@ style(使用的less)
 .upload-wrapper {
   width: 100px;
   height: 100px;
-  margin: 5px;
   .upload {
     display: block;
     width: 100px;

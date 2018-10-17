@@ -9,16 +9,10 @@
           :height="form.height"
           :borderRadius="form.borderRadius"
           :spaceBetween="form.spaceBetween"
-          :isMenu="form.isMenu"
-          :isRotate="form.isRotate"
-          :isMove="form.isMove"
-          :isScale="form.isScale"
-          :isSingleClickToClose="form.isSingleClickToClose"
-          :doubleRestore="form.doubleRestore"
           :isMousewheelScale="form.isMousewheelScale"
           :mousewheelScaleSpeed="form.mousewheelScaleSpeed"
           :isEdit="form.isEdit"
-          :keyboardControl="form.keyboardControl"
+          :menuType="form.menuType"
         ></PPreview>
         </div>
         <div class="work-station">
@@ -42,37 +36,25 @@
                 <mu-form-item prop="mousewheelScaleSpeed" label="mousewheelScaleSpeed">
                   <mu-slider v-model="form.mousewheelScaleSpeed" :max="1"></mu-slider>
                 </mu-form-item>
-                <mu-row style="margin-bottom: 20px;">
-                    <mu-col span="4">
-                      <mu-switch v-model="form.isMenu" label="isMenu"></mu-switch>
-                    </mu-col>
-                    <mu-col span="4">
-                      <mu-switch v-model="form.isRotate" label="isRotate"></mu-switch>
-                    </mu-col>
-                    <mu-col span="4">
-                      <mu-switch v-model="form.isMove" label="isMove"></mu-switch>
-                    </mu-col>
-                  </mu-row>
-                  <mu-row style="margin-bottom: 20px;">
-                    <mu-col span="4">
-                      <mu-switch v-model="form.isScale" label="isScale"></mu-switch>
-                    </mu-col>
-                    <mu-col span="4">
-                      <mu-switch v-model="form.isSingleClickToClose" label="isSingleClickToClose"></mu-switch>
-                    </mu-col>
-                    <mu-col span="4">
-                      <mu-switch v-model="form.doubleRestore" label="doubleRestore"></mu-switch>
-                    </mu-col>
-                  </mu-row>
                   <mu-row>
                     <mu-col span="4">
                       <mu-switch v-model="form.isMousewheelScale" label="isMousewheelScale"></mu-switch>
                     </mu-col>
                     <mu-col span="4">
+                      <mu-switch v-model="form.keyboardControl" label="keyboardControl"></mu-switch>
+                    </mu-col>
+                  </mu-row>
+                  <mu-row style="margin-top: 30px;">
+                    <mu-col span="4">
                       <mu-switch v-model="form.isEdit" label="isEdit"></mu-switch>
                     </mu-col>
-                    <mu-col span="4">
-                      <mu-switch v-model="form.keyboardControl" label="keyboardControl"></mu-switch>
+                  </mu-row>
+                  <mu-row style="margin-top: 30px;">
+                    <mu-col span="12">
+                      <p style="line-height:1">按钮样式：</p>
+                      <mu-radio v-model="form.menuType" style="margin-right: 16px;" value="all" label="all"></mu-radio>
+                      <mu-radio v-model="form.menuType" style="margin-right: 16px;" value="normal" label="normal"></mu-radio>
+                      <mu-radio v-model="form.menuType" style="margin-right: 16px;" value="simple" label="simple"></mu-radio>
                     </mu-col>
                   </mu-row>
               </mu-form>
@@ -124,18 +106,13 @@ export default {
       form: {
         width: 100,
         height: 100,
-        borderRadius: 10,
-        isMenu: true,
-        isRotate: true,
-        isMove: true,
-        isScale: true,
-        isSingleClickToClose: true,
-        doubleRestore: true,
-        isMousewheelScale: true,
+        borderRadius: 5,
+        spaceBetween: 5,
         isEdit: false,
+        isMousewheelScale: true,
         keyboardControl: true,
         mousewheelScaleSpeed: 0.06,
-        spaceBetween: 5
+        menuType: "normal"
       },
       columns: [
           { title: '方法名称', name: 'name' },
@@ -167,42 +144,6 @@ export default {
           desc: '间距',
           type: 'number',
           default: 5
-        },
-        {
-          name: 'isMenu',
-          desc: '是否有菜单',
-          type: 'Boolean',
-          default: 'true'
-        },
-        {
-          name: 'isRotate',
-          desc: '是否可旋转',
-          type: 'Boolean',
-          default: 'true'
-        },
-        {
-          name: 'isMove',
-          desc: '是否可前进后退',
-          type: 'Boolean',
-          default: 'true'
-        },
-        {
-          name: 'isScale',
-          desc: '是否可缩放',
-          type: 'Boolean',
-          default: 'true'
-        },
-        {
-          name: 'isSingleClickToClose',
-          desc: '是否可单击关闭大图',
-          type: 'Boolean',
-          default: 'true'
-        },
-        {
-          name: 'doubleRestore',
-          desc: '是否双击还原',
-          type: 'Boolean',
-          default: 'true'
         },
         {
           name: 'isMousewheelScale',

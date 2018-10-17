@@ -6,12 +6,7 @@
           :pictureList="pictureList"
           :props="defaultProps"
           :isEdit="form.isEdit"
-          @move="move"
-          @deletePicture="deletePicture"
-          @prevPicture="prevPicture"
-          @topPicture="topPicture"
-          @nextPicture="nextPicture"
-          @bottomPicture="bottomPicture"
+          @pictureUpdated="pictureUpdated"
         ></PPreview>
         </div>
         <div class="work-station">
@@ -20,7 +15,7 @@
             </div>
             <div class="right">
               <div class="current-action">
-                <h3>{{actionTitle}}</h3>
+                <h3>你的操作是：{{actionTitle}}</h3>
                 <resultMarkdown :result="actionResult"></resultMarkdown>
               </div>
             </div>
@@ -72,55 +67,17 @@ export default {
         isEdit: true
       },
       columns: [
-          { title: '参数名称', name: 'name' },
+          { title: '方法名称', name: 'name' },
           { title: '描述', name: 'desc'},
           { title: '返回值', name: 'callback'}
       ],
       list: [
         {
-          name: 'move',
-          desc: '大图状态时候前后移动时触发',
+          name: 'pictureUpdated',
+          desc: '图片变动后的派发事件',
           callback: `
-            <p>direction : 方向（1是前进，-1是后退）</p>
-            <p>src : 当前显示的图片地址</p>
-            <p>index : 当前图片的索引，从0开始</p>
-            <p>isFirst : 是否是第一张（true/false）</p>
-            <p>isLast : 是否是最后一张（true/false）</p>`
-        },
-        {
-          name: 'deletePicture',
-          desc: '删除小图时候触发',
-          callback: `
-            <p>index : 删除的小图的index</p>
-            <p>result : 当前最新的图片列表</p>`
-        },
-        {
-          name: 'prevPicture',
-          desc: '小图左移一步时候触发',
-          callback: `
-            <p>index : 点击的小图的index</p>
-            <p>result : 当前最新的图片列表</p>`
-        },
-        {
-          name: 'nextPicture',
-          desc: '小图右移一步时候触发',
-          callback: `
-            <p>index : 点击的小图的index</p>
-            <p>result : 当前最新的图片列表</p>`
-        },
-        {
-          name: 'topPicture',
-          desc: '小图置顶时候触发',
-          callback: `
-            <p>index : 点击的小图的index</p>
-            <p>result : 当前最新的图片列表</p>`
-        },
-        {
-          name: 'bottomPicture',
-          desc: '小图置最后时候触发',
-          callback: `
-            <p>index : 点击的小图的index</p>
-            <p>result : 当前最新的图片列表</p>`
+            <p>action : 现有‘delete’,‘move’两种不同事件</p>
+            <p>newList : 最新的图片列表</p>`
         },
       ],
       actionTitle: '',
@@ -128,29 +85,10 @@ export default {
     };
   },
   methods: {
-    move(data) {
-      console.log(data);
-    },
-    deletePicture(data) {
-      this.actionTitle = '删除图片成功';
-      this.actionResult = data;
-    },
-    prevPicture(data) {
-      this.actionTitle = '左移动成功';
-      this.actionResult = data;
-    },
-    nextPicture(data) {
-      this.actionTitle = '右移动成功';
-      this.actionResult = data;
-    },
-    topPicture(data) {
-      this.actionTitle = '置顶成功';
-      this.actionResult = data;
-    },
-    bottomPicture(data) {
-      this.actionTitle = '置最后成功';
-      this.actionResult = data;
-    },
+    pictureUpdated(data) {
+      this.actionTitle = data.action;
+      this.actionResult = data.newList;
+    }
   },
   components: {
     pageMarkedown,

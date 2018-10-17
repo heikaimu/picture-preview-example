@@ -21,12 +21,7 @@ export default {
   data() {
 		return {
 code: `<PPreview
-  @move="move"
-  @deletePicture="deletePicture"
-  @prevPicture="prevPicture"
-  @topPicture="topPicture"
-  @nextPicture="nextPicture"
-  @bottomPicture="bottomPicture"
+  @pictureUpdated="pictureUpdated"
 ></PPreview>`,
 			isRefress: true
 		};

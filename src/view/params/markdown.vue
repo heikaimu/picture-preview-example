@@ -30,16 +30,11 @@ export default {
   :height="${this.form.height}"
   :borderRadius="${this.form.borderRadius}"
   :spaceBetween="${this.form.spaceBetween}"
-  :isMenu="${this.form.isMenu}"
-  :isRotate="${this.form.isRotate}"
-  :isMove="${this.form.isMove}"
-  :isScale="${this.form.isScale}"
-  :isSingleClickToClose="${this.form.isSingleClickToClose}"
-  :doubleRestore="${this.form.doubleRestore}"
   :isMousewheelScale="${this.form.isMousewheelScale}"
   :mousewheelScaleSpeed="${this.form.mousewheelScaleSpeed}"
   :isEdit="${this.form.isEdit}"
   :keyboardControl="${this.form.keyboardControl}"
+  :menuType="${this.form.menuType}"
 ></PPreview>`;
   },
   watch: {
@@ -51,16 +46,11 @@ export default {
   :height="${this.form.height}"
   :borderRadius="${this.form.borderRadius}"
   :spaceBetween="${this.form.spaceBetween}"
-  :isMenu="${this.form.isMenu}"
-  :isRotate="${this.form.isRotate}"
-  :isMove="${this.form.isMove}"
-  :isScale="${this.form.isScale}"
-  :isSingleClickToClose="${this.form.isSingleClickToClose}"
-  :doubleRestore="${this.form.doubleRestore}"
   :isMousewheelScale="${this.form.isMousewheelScale}"
   :mousewheelScaleSpeed="${this.form.mousewheelScaleSpeed}"
   :isEdit="${this.form.isEdit}"
   :keyboardControl="${this.form.keyboardControl}"
+  :menuType="${this.form.menuType}"
 ></PPreview>`;
         setTimeout(() => {
           this.isRefress = true;

@@ -88,7 +88,6 @@ export default {
 .upload-wrapper {
   width: 100px;
   height: 100px;
-  margin: 5px;
   .upload {
     display: block;
     width: 100px;

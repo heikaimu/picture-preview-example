@@ -1,7 +1,9 @@
 <template>
     <div>
 <vue-markdown v-highlight>
-### 本插件只是提供一个插槽，具体的上传方式可以自定，本例子使用的自己写的一个七牛云上传的组件，仅供参考。
+### 开启编辑模式，设置 isEdit 为true。开启之后既可以拖拽更换位置以及删除图片。
+![gif](http://p09vugqdu.bkt.clouddn.com/GIF12.gif)
+### 插件提供一个插槽，可自行添加一个上传组件，下面提供一个自己写的七牛上传组件，仅供参考。
 
 template
 ```

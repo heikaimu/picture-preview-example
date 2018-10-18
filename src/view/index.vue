@@ -5,7 +5,7 @@
         <router-link to="/index/example">基础案例</router-link>
         <router-link to="/index/params">参数</router-link>
         <router-link to="/index/methods">方法</router-link>
-        <router-link to="/index/upload">带上传</router-link>
+        <router-link to="/index/upload">编辑模式</router-link>
         <router-link to="/index/other">其他</router-link>
       </div>
       <div class="content-wrapper">
